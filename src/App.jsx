@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-import {googleAPIKey} from './keys'
-import { VideoDetail } from './video_details'
+import {googleAPIKey} from './APIkey'
+import VideoDetail from './VideoDetails'
+import SearchBar from './SearchBar';
 
-function App() 
+function App() {
+    return (
+        <div className="App">
+            <SearchBar placeholder="Enter search parameter..."/>
+        </div>
+    );
+}
 
-    
+export default App;
                
            
