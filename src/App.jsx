@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 function App() {
     return (
         <div className="App">
-            <SearchBar placeholder="Enter search parameter..."/>
+            <SearchBar placeholder="Enter search parameter..." data={''}/>
         </div>
     );
 }
