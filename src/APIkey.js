@@ -5,4 +5,4 @@ export default axios.create({
 })
 
 
-export const googleAPIKey = "AIzaSyDmJgZx84PoQlXfu2PjnARjqU2U_XVDQbw";
+export const googleAPIKey = ;
