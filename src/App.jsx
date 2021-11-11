@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import {googleAPIKey} from './APIkey'
-import VideoDetail from './VideoDetails'
+import VideoDetail from './Components/VideoDetail/VideoDetails'
 import SearchBar from './SearchBar';
-import Search from './Search';
 
 function App() {
     const [data, setData] = useState([]);
