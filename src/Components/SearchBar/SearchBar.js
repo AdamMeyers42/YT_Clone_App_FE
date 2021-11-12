@@ -7,27 +7,33 @@ import SearchIcon from '@material-ui/icons/Search';
 
 function SearchBar() {
     const searchQ = []
-    const [q, setQ] = useState();
+    const [q, setQ] = useState('Test');
 
     useEffect(() => {
         console.log("useEffect is running")
         searchVideos();
-    }, [setQ])
+    })
 
-    const handleSubmit = async (e) =>  setQ(e.target.value)
+    const handleSubmit = async (e) => {
+        console.log('TEST')
+        console.log(e)
+        e.preventDefault();
+        setQ(e.target[0].value)
+    } 
 
-    const searchVideos = async (e) => {
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q= ${q} &type=video&key=${key}&part=snippet`)
+
+    const searchVideos = async () => {
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${q}&type=video&key=${key}&part=snippet`)
         console.log(response);
-        return searchQ = response.data.videoId
+        // return searchQ = response.data.videoId
     }
 
     return (
         <div className="search">
             <div className="searchInputs">
             <form onSubmit={handleSubmit} >                                            
-            <input type="text" onChange={(e) => setQ(e.target.value)} />
-            <button type="submit">Submit</button>
+            <input type="text" />
+            <button type="submit" >Submit</button>
             </form>
                 <div className="searchIcon">
                     <SearchIcon /> 
