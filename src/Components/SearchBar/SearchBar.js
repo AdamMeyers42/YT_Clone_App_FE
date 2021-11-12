@@ -6,7 +6,6 @@ import SearchIcon from '@material-ui/icons/Search';
 
 
 function SearchBar() {
-    const searchQ = []
     const [q, setQ] = useState('Test');
 
     useEffect(() => {
