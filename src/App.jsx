@@ -6,6 +6,7 @@ import VideoList from './Components/VideoList/VideoList';
 import SearchBar from './Components/SearchBar/SearchBar';
 import youtube from './API/youtube'
 import Comments from './Components/Comments/Comments';
+import { Grid } from '@material-ui/core'
 
 function App() {
     const [videos, setVideos] = useState([])
@@ -34,13 +35,21 @@ function App() {
     }, [videos]);
 
     return (
-        <div>
-            <SearchBar handleSubmit={handleSubmit} /> <br /> <br /><br /><br /><br /><br />
-            <VideoDetail video={selectedVideo}/> <br /> <br />
-            <Comments comments={initialComments} />
-            <br /> <br /><br /><br /><br /><br />
-            <VideoList videos={videos} setSelectedVideo={setSelectedVideo} onVideoSelect={onVideoSelect} />
-        </div>
+        <Grid justify="center" container spacing={10}>
+                <Grid item xs={10}>
+                    <Grid container spacing={10}>
+                      <Grid item xs={12}>
+                       <SearchBar onFormSubmit={handleSubmit}/> <br/><br/><br/>
+                      </Grid>
+                      <Grid item xs={8}>
+                         <VideoDetail video={selectedVideo} />
+                      </Grid>
+                      <Grid item xs={4}>
+                          <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
+                      </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
     )
 }
 
