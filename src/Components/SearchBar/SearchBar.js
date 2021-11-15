@@ -15,11 +15,11 @@ function SearchBar({ handleSubmit }) {
     }
   
     return (
-        <div className="search">
+        <div className="search-bar ui segment">
             <div className="searchInputs">
-            <form onSubmit={onSubmit} >                                            
-                <input type="text" name="searchTerm" onChange={handleChange}/>
-                <button type="submit" >Submit</button>
+            <form className="form-wrapper" onSubmit={onSubmit} >                                            
+                <input type="text" name="searchTerm" placeholder="search for..." onChange={handleChange}/>
+                <button type="submit" value="go" id='submit'>Submit</button>
             </form>
                 <div className="searchIcon">
                     <SearchIcon /> 

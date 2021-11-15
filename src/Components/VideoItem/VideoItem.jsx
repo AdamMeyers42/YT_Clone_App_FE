@@ -7,7 +7,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
         onVideoSelect(video);
     }
     return (
-      <Grid item xs={12}>
+      <Grid item xs={8}>
       <Paper style={{ display: 'flex', alignItems: 'center', cursor: 'pointer'}} onClick={() => onVideoSelect(video)}>
           <img style={{marginRight: '20px'}} src={video.snippet.thumbnails.medium.url} alt="thumbnial"/>
           <Typography variant="subtitle1"><b>{video.snippet.title}</b></Typography>
