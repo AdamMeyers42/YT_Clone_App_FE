@@ -1,11 +1,20 @@
-import React from "react";
+import React, {  useState } from 'react';
 
-const VideoDetail = ({ video }) => {
-  if (!video) {
-    return null;
+
+const VideoDetail = () => {
+  const [selectedVideo, setSelectedVideo] = useState()
+  if (!selectedVideo) {
+    return (
+      <div>
+        <p>Enter a Search Term to Search for Videos</p>
+      </div>
+    );
   }
-  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+  
+
+  const videoSrc = `https://www.youtube.com/embed/${selectedVideo.video.id.videoId}`;
   console.log('video detail')
+  
   return (
     <container>
     <div>
@@ -13,8 +22,8 @@ const VideoDetail = ({ video }) => {
         <iframe src={videoSrc} title="video player" />
       </div>
       <div >
-        <h4> {video.snippet.title}</h4>
-        <p>{video.snippet.description}</p>
+        <h4> {selectedVideo.video.snippet.title}</h4>
+        <p>{selectedVideo.video.snippet.description}</p>
       </div>
     </div>
     </container>

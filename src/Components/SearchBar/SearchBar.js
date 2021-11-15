@@ -14,13 +14,6 @@ function SearchBar({ handleSubmit }) {
       e.preventDefault()
     }
   
-
-    
-
-
-
-  
-
     return (
         <div className="search">
             <div className="searchInputs">
