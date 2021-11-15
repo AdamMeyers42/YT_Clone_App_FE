@@ -5,20 +5,20 @@ import axios from 'axios';
 import SearchIcon from '@material-ui/icons/Search';
 
 
-function SearchBar(props) {
-    const [q, setQ] = useState('');
+function SearchBar({handleSubmit}) {
+    const [q, setQ] = useState({
+        searchTerm: ''
+    })
 
   
-
-    const handleSubmit = async (e) => {
-        console.log('TEST')
-        console.log(e)
-        e.preventDefault();
-        props.search(q)
-    } 
-    const handleChange = (e) => {
-        setQ(e.target.value)
+    const onChange = (e) => setQ({ searchTerm: e.target.value })
+    const onSubmit = (e) => {
+        const { searchTerm } = q
+        handleSubmit(searchTerm)
+        e.preventDefault()
     }
+
+    
 
     
 
@@ -29,8 +29,8 @@ function SearchBar(props) {
     return (
         <div className="search">
             <div className="searchInputs">
-            <form onSubmit={handleSubmit} >                                            
-                <input type="text" name="searchTerm" onChange={handleChange}/>
+            <form onSubmit={onSubmit} >                                            
+                <input type="text" name="searchTerm" onChange={onChange}/>
                 <button type="submit" >Submit</button>
             </form>
                 <div className="searchIcon">

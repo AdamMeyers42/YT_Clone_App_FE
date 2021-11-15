@@ -5,7 +5,9 @@ const VideoDetail = ({ video }) => {
     return null;
   }
   const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+  console.log('video detail')
   return (
+    <container>
     <div>
       <div>
         <iframe src={videoSrc} title="video player" />
@@ -15,6 +17,7 @@ const VideoDetail = ({ video }) => {
         <p>{video.snippet.description}</p>
       </div>
     </div>
+    </container>
   );
 };
 
