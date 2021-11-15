@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { key } from './APIkey';
 import VideoDetail from './Components/VideoDetail/VideoDetails';
-// import VideoList from './Components/VideoList/VideoList';
+import VideoList from './Components/VideoList/VideoList';
 import SearchBar from './Components/SearchBar/SearchBar';
 import youtube from './API/youtube'
 
@@ -34,15 +34,14 @@ function App() {
     // }
 
     useEffect(() => {
-        handleSubmit()
-    }
-    )
+        setSelectedVideo(videos[0]);
+    }, []);
 
     return (
         <div>
             <SearchBar handleSubmit={handleSubmit} /> <br /> <br /><br /><br /><br /><br />
-            <VideoDetail />
-            {/* <VideoList videos={videos} setSelectedVideo={setSelectedVideo} /> */}
+            <VideoDetail video={selectedVideo}/>
+            <VideoList videos={videos} setSelectedVideo={setSelectedVideo} />
         </div>
     )
 }
