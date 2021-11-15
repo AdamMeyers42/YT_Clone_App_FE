@@ -22,26 +22,23 @@ function App() {
                 q: searchTerm
             }
         })
-        const videos = response.data.items;
-        const firstVideo = {video: videos[0].id.kind !== 'youtube#channel' ? videos[0] : videos[1]}
-
-        setVideos(videos)
-        setSelectedVideo(firstVideo)
+        setVideos(response.data.items);
+        setSelectedVideo(response.data.items[0]);
     }
 
-    // const onVideoSelect = (video) => {
-        // setSelectedVideo(video)
-    // }
+    const onVideoSelect = (video) => {
+        setSelectedVideo(video)
+    }
 
     useEffect(() => {
         setSelectedVideo(videos[0]);
-    }, []);
+    }, [videos]);
 
     return (
         <div>
             <SearchBar handleSubmit={handleSubmit} /> <br /> <br /><br /><br /><br /><br />
             <VideoDetail video={selectedVideo}/>
-            <VideoList videos={videos} setSelectedVideo={setSelectedVideo} />
+            <VideoList videos={videos} setSelectedVideo={setSelectedVideo} onVideoSelect={onVideoSelect} />
         </div>
     )
 }
