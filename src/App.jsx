@@ -43,6 +43,7 @@ function App() {
                       </Grid>
                       <Grid item xs={8}>
                          <VideoDetail video={selectedVideo} />
+                         <Comments comments={initialComments} />
                       </Grid>
                       <Grid item xs={4}>
                           <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
